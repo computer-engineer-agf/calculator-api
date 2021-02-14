@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "6bdc4cdc-03e3-4fe9-866c-029f713b97f9",
+		"name": "Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Calculation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"operandA\" : 1,\r\n    \"operandB\" : 2,\r\n    \"operation\" : \"sum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/createcalculation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"createcalculation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
