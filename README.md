@@ -4,7 +4,7 @@ Apache Maven 3.6.3,
 SpringBoot 2.4.2
 
 Intructions:
-1. Download .zip file from Git Repository
+1. Download .zip file from Git Repository https://github.com/computer-engineer-agf/calculator-api/
 2. Unzip file
 3. Open IntelliJ Community as an Admin
 4. Open Project --> Select Project
