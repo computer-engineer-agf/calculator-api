@@ -3,7 +3,6 @@ package com.calculator.hclm;
 import com.calculator.hclm.service.CalculatorServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.logging.Logger;
 
 @SpringBootApplication
