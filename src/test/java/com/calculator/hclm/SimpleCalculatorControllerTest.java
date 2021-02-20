@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -13,9 +15,7 @@ import com.calculator.hclm.controller.SimpleCalculatorController;
 import com.calculator.hclm.model.Calculator;
 import com.calculator.hclm.service.CalculatorService;
 
-import static jdk.nashorn.internal.objects.Global.Infinity;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.Assert;
 
 @WebMvcTest(SimpleCalculatorController.class)
 public class SimpleCalculatorControllerTest {
@@ -30,7 +30,7 @@ public class SimpleCalculatorControllerTest {
         //Stubbing
         Mockito.when(calculatorService.add(1, 1)).thenReturn(2.0);
         //Validate
-        assertEquals(2.0,calculatorService.add(1, 1));
+        Assertions.assertEquals(2.0,calculatorService.add(1, 1));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SimpleCalculatorControllerTest {
         //Stubbing
         Mockito.when(calculatorService.multiply(3, 1)).thenReturn(3.0);
         //Validate
-        assertEquals(3.0,calculatorService.multiply(3, 1));
+        Assertions.assertEquals(3.0,calculatorService.multiply(3, 1));
     }
 
     @Test
@@ -46,15 +46,15 @@ public class SimpleCalculatorControllerTest {
         //Stubbing
         Mockito.when(calculatorService.divide(55, 4)).thenReturn(13.75);
         //Validate
-        assertEquals(13.75,calculatorService.divide(55, 4));
+        Assert.assertEquals(13.75,calculatorService.divide(55, 4),0);
     }
 
     @Test
     void divideCalculationTestByZero() throws Exception {
         //Stubbing
-        Mockito.when(calculatorService.divide(55, 0)).thenReturn(Infinity);
+        Mockito.when(calculatorService.divide(55, 0)).thenReturn(Double.POSITIVE_INFINITY);
         //Validate
-        assertEquals(Infinity,calculatorService.divide(55, 0));
+        Assert.assertEquals(Double.POSITIVE_INFINITY,calculatorService.divide(55, 0),0);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class SimpleCalculatorControllerTest {
         //Stubbing
         Mockito.when(calculatorService.substract(23, 2)).thenReturn(21.0);
         //Validate
-        assertEquals(21.0,calculatorService.substract(23, 2));
+        Assert.assertEquals(21.0,calculatorService.substract(23, 2),0);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class SimpleCalculatorControllerTest {
         //Stubbing
         Mockito.when(listCalculations).thenReturn(Arrays.asList(mockCalc1, mockCalc2));
 
-        assertNotNull(calculatorService.getAllCalculations());
-        assertEquals(2,calculatorService.getAllCalculations().size());
+        Assert.assertNotNull(calculatorService.getAllCalculations());
+        Assert.assertEquals(2,calculatorService.getAllCalculations().size(),0);
     }
 }
